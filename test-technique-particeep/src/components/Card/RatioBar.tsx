@@ -28,9 +28,11 @@ const RatioBar: FC<IProps> = ({
 
   return (
     <div className="ratio-container">
+      {likes}
       <div onClick={() => onLike(movieId)}>
         <ThumbUpIcon
           fontSize="small"
+          style={{ cursor: "pointer" }}
           htmlColor={isLiked ? "#a3b18a" : "#000000"}
         />
       </div>
@@ -47,9 +49,11 @@ const RatioBar: FC<IProps> = ({
       <div onClick={() => onDislike(movieId)}>
         <ThumbDownIcon
           fontSize="small"
+          style={{ cursor: "pointer" }}
           htmlColor={isDisliked ? "#ef6351" : "#000000"}
         />
       </div>
+      {dislikes}
     </div>
   );
 };

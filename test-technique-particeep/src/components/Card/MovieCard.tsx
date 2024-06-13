@@ -25,19 +25,19 @@ const MovieCard: FC<IProps> = ({ movie, onDelete, onDislike, onLike }) => {
       <div className="delete-button" onClick={() => onDelete(movie.id)}>
         <DeleteForeverIcon htmlColor="#ef6351" />
       </div>
-      <p className="title">{movie.title}</p>
-      <div className="info-container">
+      <div>
+        <p className="title">{movie.title}</p>
         <p className="category">{movie.category}</p>
-        <RatioBar
-          dislikes={movie.dislikes}
-          likes={movie.likes}
-          onLike={onLike}
-          onDislike={onDislike}
-          movieId={movie.id}
-          isLiked={isLiked}
-          isDisliked={isDisliked}
-        />
       </div>
+      <RatioBar
+        dislikes={movie.dislikes}
+        likes={movie.likes}
+        onLike={onLike}
+        onDislike={onDislike}
+        movieId={movie.id}
+        isLiked={isLiked}
+        isDisliked={isDisliked}
+      />
     </div>
   );
 };

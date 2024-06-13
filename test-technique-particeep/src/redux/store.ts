@@ -7,6 +7,8 @@ const store = configureStore({
         movies: moviesReducer,
         categories: categoriesReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware()
 });
 
 export type RootState = ReturnType<typeof store.getState>;
