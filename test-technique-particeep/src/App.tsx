@@ -82,42 +82,52 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="header">
-        <div className="refresh-container">
-          <h1>Liste de nos films</h1>
-          <div onClick={handleRefresh}>
-            <CachedIcon
-              fontSize="large"
-              color="disabled"
-              className={isRotating ? "rotating" : ""}
-              style={{ cursor: "pointer" }}
-            />
+    <div
+      className="App"
+      style={{
+        justifyContent: "space-between",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+      }}
+    >
+      <div>
+        <div className="header">
+          <div className="refresh-container">
+            <h1>Liste de nos films</h1>
+            <div onClick={handleRefresh}>
+              <CachedIcon
+                fontSize="large"
+                color="disabled"
+                className={isRotating ? "rotating" : ""}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
           </div>
+          <CategorySelect
+            choices={categories}
+            handleChange={(value) => setSelectedCategories(value)}
+            inputLabel="Filtrer par catégories"
+            selectedChoices={selectedCategories}
+          />
         </div>
-        <CategorySelect
-          choices={categories}
-          handleChange={(value) => setSelectedCategories(value)}
-          inputLabel="Filtrer par catégories"
-          selectedChoices={selectedCategories}
-        />
-      </div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      <div className="card-container">
-        {currentMovies.length > 0 ? (
-          currentMovies.map((movie: IMovie) => (
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-              onDelete={handleDelete}
-              onDislike={handleDislike}
-              onLike={handleLike}
-            />
-          ))
-        ) : (
-          <p>Aucun film.</p>
-        )}
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+        <div className="card-container">
+          {currentMovies.length > 0 ? (
+            currentMovies.map((movie: IMovie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onDelete={handleDelete}
+                onDislike={handleDislike}
+                onLike={handleLike}
+              />
+            ))
+          ) : (
+            <p>Aucun film.</p>
+          )}
+        </div>
       </div>
       <Pagination
         setMoviesPerPage={setMoviesPerPage}

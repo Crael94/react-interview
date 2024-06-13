@@ -1,7 +1,7 @@
 .App {
   padding: 2rem;
   background-color: #f8edeb;
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
 .header {
@@ -78,9 +78,15 @@ p,
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .card-container {
     grid-template-columns: 1fr;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .multi-select {
+    width: 100%;
   }
 }
 
@@ -118,7 +124,6 @@ p,
 /* Pagination */
 
 .pagination-container {
-  position: absolute;
   bottom: 2rem;
 }
 
