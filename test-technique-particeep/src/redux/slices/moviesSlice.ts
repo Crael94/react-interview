@@ -56,7 +56,6 @@ export const deleteMovieAndCheckCategory = createAsyncThunk(
         const categoryExists = updatedState.movies.movies.some(movie => movie.category === movieCategory);
 
         if (!categoryExists) {
-            console.log('movieCategory === ', movieCategory)
             dispatch(removeCategory(movieCategory));  // Supprime la catégorie si plus aucun film n'y appartient
         }
     }
